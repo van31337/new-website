@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "../styles/StyledHome.css";
 
 const MatrixBackground = () => {
   const canvasRef = useRef();
@@ -9,9 +10,9 @@ const MatrixBackground = () => {
     const cols = Math.floor(window.innerWidth / 60);
     const ypos = Array(cols)
       .fill(0)
-      .map((_, i) => i * 0);
+      .map((_, i) => 0);
     const matrix =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" + // English letters and numbers
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + // English letters and numbers
       "\u3040-\u309f\u30a0-\u30ff" + // Japanese Hiragana and Katakana
       "\u4e00-\u9faf\u3400-\u4dbf" + // Chinese Simplified and Traditional characters
       "\uac00-\ud7af" + // Korean Hangul characters
@@ -42,7 +43,7 @@ const MatrixBackground = () => {
       });
     };
 
-    const interval = setInterval(draw, 100);
+    const interval = setInterval(draw, 75);
     return () => clearInterval(interval);
   }, []);
 
